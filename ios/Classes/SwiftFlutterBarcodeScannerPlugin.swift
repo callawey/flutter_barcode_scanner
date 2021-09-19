@@ -16,6 +16,7 @@ public class SwiftFlutterBarcodeScannerPlugin: NSObject, FlutterPlugin, ScanBarc
     
     public static var viewController = UIViewController()
     public static var lineColor:String=""
+    public static var infoMessage:String=""
     public static var cancelButtonText:String=""
     public static var isShowFlashIcon:Bool=false
     var pendingResult:FlutterResult!
@@ -61,6 +62,11 @@ public class SwiftFlutterBarcodeScannerPlugin: NSObject, FlutterPlugin, ScanBarc
             SwiftFlutterBarcodeScannerPlugin.lineColor = colorCode
         }else {
             SwiftFlutterBarcodeScannerPlugin.lineColor = "#ff6666"
+        }
+        if let message = args["infoMessage"] as? String{
+            SwiftFlutterBarcodeScannerPlugin.infoMessage = message
+        }else {
+            SwiftFlutterBarcodeScannerPlugin.infoMessage = ""
         }
         if let buttonText = args["cancelButtonText"] as? String{
             SwiftFlutterBarcodeScannerPlugin.cancelButtonText = buttonText
